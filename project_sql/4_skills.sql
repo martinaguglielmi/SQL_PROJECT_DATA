@@ -88,7 +88,6 @@ INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
 
 SELECT 
     skills,
-    skill_id,
     ROUND(AVG(salary_year_avg),0) as salary_avg
 FROM 
     highest_paid_skills
@@ -97,8 +96,7 @@ WHERE
     salary_year_avg IS NOT NULL AND
     job_title_short = 'Data Analyst' 
 GROUP BY 
-    skills,
-    skill_id
+    skills
 ORDER BY salary_avg DESC
 LIMIT 10;
 
@@ -122,7 +120,6 @@ INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
 
 SELECT 
     skills,
-    skill_id,
     ROUND(AVG(salary_year_avg),0) as salary_avg
 FROM 
     highest_paid_skills
@@ -132,8 +129,7 @@ WHERE
     job_title_short = 'Data Analyst' AND
     job_country = 'Italy'
 GROUP BY 
-    skills,
-    skill_id
+    skills
 ORDER BY salary_avg DESC
 LIMIT 10;
 
